@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     client.connect(err => {
         const collection = client.db("sample_mflix").collection("movies");
-        collection.find().limit(15).toArray((err, result) => {
+        collection.find().limit(10).toArray((err, result) => {
             if (err) console.log(err.message);
             else res.send(result)
             client.close();
